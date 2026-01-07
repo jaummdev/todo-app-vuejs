@@ -1,7 +1,5 @@
 import { createStore } from 'vuex'
-import axios from "axios"
-
-const API_URL = 'http://localhost:3000'
+import { todoService } from '../services/todoService'
 
 export default createStore({
   state: {
@@ -31,23 +29,21 @@ export default createStore({
   },
   actions: {
     getTodos({ commit }) {
-      return axios.get(API_URL + '/todos')
-        .then(response => {
-          commit('storeTodos', response.data)
-        })
+      return todoService.getTodos()
+        .then(({ data }) => commit('storeTodos', data))
     },
     addTodo({ commit }, data) {
-      return axios.post(API_URL + '/todos', data).then((response) => {
-        commit('storeTodo', response.data)
+      return todoService.addTodo(data).then(({ data }) => {
+        commit('storeTodo', data)
       })
     },
     updateTodo({ commit }, { id, data }) {
-      return axios.put(API_URL + `/todos/${id}`, data).then((response) => {
-        commit('storeTodo', response.data)
+      return todoService.updateTodo(id, data).then(({ data }) => {
+        commit('storeTodo', data)
       })
     },
     deleteTodo({ commit }, id) {
-      return axios.delete(API_URL + `/todos/${id}`).then(() => {
+      return todoService.deleteTodo(id).then(() => {
         commit('deleteTodo', id)
       })
     }

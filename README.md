@@ -8,7 +8,7 @@ Um aplicativo de lista de tarefas (Todo List) desenvolvido com Vue.js 3, utiliza
 - **Vuex 4** - Gerenciamento de estado centralizado
 - **Vue CLI** - Ferramenta de desenvolvimento oficial
 - **Tailwind CSS v4** - Framework CSS utility-first
-- **Axios** - Cliente HTTP para requisições à API
+- **LocalStorage** - Persistência de dados no navegador
 - **PostCSS** - Processamento de CSS
 - **ESLint** - Linter para qualidade de código
 
@@ -41,14 +41,16 @@ Implementação completa do padrão **Flux** com Vuex:
 - **Mutations**: Modificações síncronas do estado (storeTodos, storeTodo, deleteTodo)
 - **Actions**: Operações assíncronas (getTodos, addTodo, updateTodo, deleteTodo)
 - **Getters**: Acesso computado ao estado (quando necessário)
-- **Integração com API**: Uso de Axios dentro das actions para comunicação com backend
+- **Integração com Serviço**: Uso do todoService dentro das actions para persistência de dados
 
-### Requisições HTTP
+### Persistência de Dados com LocalStorage
 
-- Integração com API REST usando **Axios**
+- Armazenamento local no navegador usando **LocalStorage API**
+- Simulação de API com delay assíncrono para experiência realista
+- Persistência automática de dados entre sessões
+- Serviço modular (todoService) para abstração da lógica de armazenamento
 - Tratamento de requisições assíncronas
 - Gerenciamento de loading states
-- Tratamento de erros
 
 ### Estilização com Tailwind CSS
 
@@ -73,7 +75,8 @@ Implementação completa do padrão **Flux** com Vuex:
 ✅ Domínio da Options API e seus recursos  
 ✅ Implementação de gerenciamento de estado com Vuex  
 ✅ Criação de componentes reutilizáveis e modulares  
-✅ Integração com APIs REST  
+✅ Persistência de dados com LocalStorage  
+✅ Criação de serviços modulares para abstração de lógica  
 ✅ Estilização moderna com Tailwind CSS  
 ✅ Boas práticas de desenvolvimento Vue.js
 
